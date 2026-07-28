@@ -12,14 +12,17 @@ export const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center text-slate-900 font-bold">
                 <Package className="w-5 h-5" />
               </div>
-              <span className="text-xl font-bold text-white">CentroProveedores</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-bold text-white">Onvia</span>
+                <span className="text-[10px] text-slate-400 -mt-0.5">web</span>
+              </div>
             </div>
             <p className="text-sm text-slate-400 max-w-sm">
-              La plataforma que simplifica las compras industriales B2B conectando directo con fabricantes y distribuidores de empaques, cintas y vinipel.
+              La plataforma donde emprendedores, negocios y proveedores se encuentran, conectan y crecen juntos. Tu negocio, tu vía.
             </p>
             <div className="flex items-center gap-2 text-xs text-teal-400 bg-slate-800/80 w-fit px-3 py-1.5 rounded-full border border-slate-700">
               <CheckCircle2 className="w-4 h-4" />
-              <span>Validación manual de cada proveedor en 48 horas</span>
+              <span>Perfil visible en menos de 48 horas</span>
             </div>
           </div>
 
@@ -51,7 +54,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Centro de Proveedores B2B. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Onvia web. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
