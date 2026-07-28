@@ -1,0 +1,26 @@
+server:
+  port: ${PORT:8000}
+
+spring:
+  application:
+    name: centro-proveedores-backend
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/miapp}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
