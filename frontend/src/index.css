@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #1E293B;
+    --color-teal: #14B8A6;
+    --color-teal-hover: #0D9488;
+    --color-orange: #F97316;
+    --font-heading: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #F8FAFC;
+    color: #1E293B;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-navy {
+    background-color: #1E293B;
+  }
+  .text-navy {
+    color: #1E293B;
+  }
+  .border-navy {
+    border-color: #1E293B;
+  }
+
+  .bg-teal-accent {
+    background-color: #14B8A6;
+  }
+  .bg-teal-accent-hover:hover {
+    background-color: #0D9488;
+  }
+  .text-teal-accent {
+    color: #14B8A6;
+  }
+
+  .bg-orange-accent {
+    background-color: #F97316;
+  }
+  .text-orange-accent {
+    color: #F97316;
+  }
+}
+
+/* Transiciones fluidas */
+* {
+  transition-property: color, background-color, border-color, transform, box-shadow, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
