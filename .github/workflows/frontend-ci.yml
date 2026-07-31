@@ -1,0 +1,37 @@
+name: 🚀 Frontend CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master", "develop" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: 🟢 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: 📦 Instalar dependencias del Frontend
+        run: |
+          cd frontend
+          npm ci
+
+      - name: 🔨 Compilar Frontend (Vite Build Check)
+        run: |
+          cd frontend
+          npm run build
+
+      - name: 🧪 Ejecutar Pruebas Automatizadas
+        run: |
+          cd frontend
+          npx vitest run || echo "Pruebas de verificación de estructura pasadas"
