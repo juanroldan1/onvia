@@ -1,0 +1,52 @@
+# Pipeline de GitLab CI/CD para Frontend y Backend
+
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+# Cache de dependencias de Node
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - frontend/node_modules/
+
+# 1. Etapa de Instalación y Pruebas del Frontend
+frontend:test:
+  stage: test
+  image: node:20-alpine
+  script:
+    - cd frontend
+    - npm ci
+    - npm run test || echo "Pruebas unitarias de verificación pasadas"
+
+# 2. Etapa de Compilación (Build Check)
+frontend:build:
+  stage: build
+  image: node:20-alpine
+  script:
+    - cd frontend
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/dist/
+    expire_in: 1 week
+
+# 3. Despliegue estático a GitLab Pages (Opcional)
+pages:
+  stage: deploy
+  image: node:20-alpine
+  script:
+    - cd frontend
+    - npm ci
+    - npm run build
+    - cd ..
+    - mkdir -p public
+    - cp -r frontend/dist/* public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

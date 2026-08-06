@@ -73,9 +73,6 @@ export const Login = () => {
           <ArrowLeft className="w-4 h-4" />
           <span>Volver al inicio</span>
         </Link>
-        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
-          <ShieldCheck className="w-3.5 h-3.5" /> Acceso Seguro
-        </span>
       </div>
 
       {/* Tarjeta Modal de Iniciar Sesión con animación de entrada */}
@@ -151,7 +148,7 @@ export const Login = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="tu@negocio.com"
+                  placeholder="tu@usuario.com"
                   className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 focus:bg-white transition-all duration-200"
                   required
                 />
